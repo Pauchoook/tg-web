@@ -7,7 +7,7 @@ function Header(props) {
    const {onClose, user} = useTelegram();
 
    return (
-      <div className='Header'>
+      <div className='header'>
          <Button onClick={onClose}>Закрыть</Button>
          <span className="username">{user?.username}</span>
       </div>
