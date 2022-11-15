@@ -23,10 +23,10 @@ function Form(props) {
 
    useEffect(() => {
       // вешаем слушатеть на главную кнопку
-      tg.WebApp.onEvent('mainButtonClicked', onSendData);
+      tg.onEvent('mainButtonClicked', onSendData);
       return () => {
          // отписка от слушателя, когда компонент демонтируется
-         tg.WebApp.offEvent('mainButtonClicked', onSendData);
+         tg.offEvent('mainButtonClicked', onSendData);
       }
    }, []);
 
