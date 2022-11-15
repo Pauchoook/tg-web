@@ -19,7 +19,7 @@ function Form(props) {
 
       // отправка данных боту
       tg.sendData(JSON.stringify(data));
-   }, []);
+   }, [country, city, subject]);
 
    useEffect(() => {
       // вешаем слушатеть на главную кнопку
