@@ -5,7 +5,7 @@ function Button(props) {
    return (
       <button
          {...props}
-         className={'button'}
+         className={'button' + props.className}
       />
    );
 }
