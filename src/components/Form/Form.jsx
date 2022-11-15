@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useEffect } from 'react';
 import { useTelegram } from '../../hooks/useTelegram';
 import './Form.css';
@@ -28,7 +27,7 @@ function Form(props) {
          // отписка от слушателя, когда компонент демонтируется
          tg.offEvent('mainButtonClicked', onSendData);
       }
-   }, []);
+   }, [onSendData]);
 
    useEffect(() => {
       // главная кнопка
