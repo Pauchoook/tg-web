@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useCallback } from 'react';
 import { useEffect } from 'react';
 import { useTelegram } from '../../hooks/useTelegram';
 import './Form.css';
@@ -8,6 +9,26 @@ function Form(props) {
    const [city, setCity] = useState('');
    const [subject, setSubject] = useState('');
    const {tg} = useTelegram();
+
+   const onSendData = useCallback(() => {
+      const data = {
+         country,
+         city,
+         subject
+      }
+
+      // отправка данных боту
+      tg.sendData(JSON.stringify(data));
+   }, []);
+
+   useEffect(() => {
+      // вешаем слушатеть на главную кнопку
+      tg.WebApp.onEvent('mainButtonClicked', onSendData);
+      return () => {
+         // отписка от слушателя, когда компонент демонтируется
+         tg.WebApp.offEvent('mainButtonClicked', onSendData);
+      }
+   }, []);
 
    useEffect(() => {
       // главная кнопка
