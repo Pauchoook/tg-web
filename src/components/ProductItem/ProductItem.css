@@ -1,9 +1,12 @@
 .product {
    display: flex;
+   align-items: center;
+   justify-content: center;
    flex-direction: column;
    border: 1px solid var(--tg-theme-button-color);
    padding: 15px;
-   flex: 0 1 50%;
+   flex: 0 1 calc(50% - 5px);
+   row-gap: 3px;
 }
 
 .img {

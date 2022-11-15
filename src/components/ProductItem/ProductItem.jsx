@@ -8,7 +8,7 @@ function ProductItem({product, className, onAdd}) {
    }
 
    return (
-      <div className={'product' + className}>
+      <div className={`product + ${className}`}>
          <div className="img" />
          <h4 className='title'>{product.title}</h4>
          <p className="description">{product.description}</p>
